@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="public/css/default.css">
+    <script src="public/tools/indice.js"></script>
+    <script>
+        var current_class = "index";
+    </script>
+    <script src="public/highlight/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Need</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/css/styles.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</head>
+
+<body>
+
+    <div class="page-container">
+        <header>
+            <div class="logo-area">
+                <img src="public/img/logomark.min.svg" alt="logo javascript">
+                <!-- <img src="img/laravel-wordmark-1.svg" style="height: 100px" alt="logo javascript"> -->
+            </div>
+            <!-- <div class="course-title">
+                <h1>Laravel Course for Beginners</h1>
+                <h2>Instructor: Moammer Farshid Enan</h2>
+            </div> -->
+
+        </header>
+
+        <main>
+            <h3>Heroku update process</h3>
+            <p>
+                1. git status
+            </p>
+            <input type="text" readonly value="git status" name="" id="git_status">
+            <button value="copy" onclick="copyFunction('git_status')" type="button" class="btn btn-block btn-info">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+
+            <p>
+                2. git add .
+            </p>
+            <input type="text" readonly value="git add ." name="" id="git_add">
+            <button value="copy" onclick="copyFunction('git_add')" type="button" class="btn btn-block btn-info">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+
+            <p>
+                3. git commit -am "message"
+            </p>
+            <input type="text" readonly value="git commit -am" name="" id="git_commit">
+            <button value="copy" onclick="copyFunction('git_commit')" type="button" class="btn btn-block btn-info">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+
+            <p>
+                4. git push heroku master
+            </p>
+            <input type="text" readonly value="git push heroku master" name="" id="git_push">
+            <button value="copy" onclick="copyFunction('git_push')" type="button" class="btn btn-block btn-info">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+
+            <p>
+                Project link
+            </p>
+            <input type="text" readonly value="https://laravel-course-with-enan.herokuapp.com/" name=""
+                id="project_link">
+            <button value="copy" onclick="copyFunction('project_link')" type="button" class="btn btn-block btn-info">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+
+        </main>
+
+    </div>
+
+    <script src="public/js/scripts.js"></script>
+    <script src="public/tools/copy.js"></script>
+    <!-- Messenger Chat plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+    <script src="public/tools/messenger.js"></script>
+
+</body>
+
+</html>
