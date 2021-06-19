@@ -5,12 +5,12 @@ var classes = {
     },
     'laravel': {
         'title': 'Laravel',
-        'url': 'laravel/laravel.html',
+        'url': 'Laravel/laravel.html',
         'section_start': 'Section 1 - Laravel'
     },
     'livewire': {
-        'title': 'livewire',
-        'url': 'livewire/livewire.html',
+        'title': 'Livewire',
+        'url': 'Livewire/livewire.html',
         'section_start': 'Section 2 - Livewire'
     },
     'laravue': {
