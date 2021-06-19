@@ -12,11 +12,11 @@ var classes = {
         'title': 'Image Upload',
         'url': 'image_upload.html',
     },
-    'laravel_custom_pagination': {
+    'custom_pagination': {
         'title': 'Custom Pagination',
         'url': 'laravel_custom_pagination.html',
     },
-    'laravel_switch': {
+    'switch': {
         'title': 'Switch',
         'url': 'laravel_switch.html',
     },

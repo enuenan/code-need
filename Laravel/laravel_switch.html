@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../public/css/default.css">
     <script src="tools/laravel.js"></script>
     <script>
-        var current_class = "laravel";
+        var current_class = "switch";
     </script>
     <script src="../public/highlight/highlight.pack.js"></script>
     <script>
@@ -32,8 +32,67 @@
         </header>
 
         <main>
+            <h3>Switch</h3>
+            <p>In the blade file use the code below</p>
+            <xmp>
+    <input type="checkbox" class="customControlInput" id="customSwitch3" data-id="{{ $service->id }}"
+        data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active"
+        data-off="InActive" {{ $service->status ? 'checked' : '' }}>
+    <label class="custom-control-label" for="customSwitch3">Toggle this</label>
+            </xmp>
 
+            <p>Use the code below to send data to server</p>
+            <xmp>
+    <script>
+        $(function () {
+            $('.customControlInput').change(function () {
+                if (confirm("Do you want to change the status?")) {
+                    var status = $(this).prop('checked') == true ? 1 : 0;
+                    var id = $(this).data('id');
+                    $.ajax({
+                        type: "GET",
+                        dataType: "json",
+                        url: "__LINK__",
+                        data: {
+                            'status': status,
+                            'id': id
+                        },
+                        success: function (data) {
+                            console.log(data.success);
+                        }
+                    });
+                } else {
+                    if ($("#single-col-" + $(this).data('id')).prop("checked") == true) {
+                        $("#single-col-" + $(this).data('id')).prop('checked', false);
+                    } else if ($("#single-col-" + $(this).data('id')).prop("checked") == false) {
+                        $("#single-col-" + $(this).data('id')).prop('checked', true);
+                    }
+                }
+            })
+        })
+    </script>
+            </xmp>
 
+            <p>In route file use route like this</p>
+            <pre>
+                <code>
+    Route::get('__LINK__', [ControllerName::class, 'functionName']);
+                </code>
+            </pre>
+
+            <p>In controller add function</p>
+            <pre>
+                <code>
+    public function functionName(Request $request)
+    {
+        $obj = ClassName::find($request->id);
+        $obj->status = $request->status;
+        $obj->save();
+
+        return response()->json(['success' => 'Status change successfully.']);
+    }
+                </code>
+            </pre>
 
             <div id="bottom-area">
                 <div class="prev-next-link">
@@ -70,105 +129,3 @@
 </body>
 
 </html>
-
-<!-- TOOGLE SWITCH 1 -->
-
-<input type="checkbox" class="__CHANGE__THIS__1__" id="customSwitch3" data-id="{{ $service->id }}"
-    data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive"
-    {{ $service->status ? 'checked' : '' }}>
-<label class="custom-control-label" for="customSwitch3">Toggle this</label>
-
-<!-- USE THIS AJAX -->
-<script>
-    $(function () {
-        $('.__CHANGE__THIS__1__').change(function () {
-            var status = $(this).prop('checked') == true ? 1 : 0;
-            var id = $(this).data('id');
-            // console.log(id);
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: "__CHANGE__THIS__2__",
-                data: {
-                    'status': status,
-                    'id': id
-                },
-                success: function (data) {
-                    console.log(data.success);
-                }
-            });
-        })
-    })
-</script>
-
-<!-- USE ROUTE LIKE THIS -->
-Route::get('__CHANGE__THIS__2__', [ServiceController::class, 'changeServiceStatus']);
-
-<!-- USE THIS IN CONTROLLER -->
-public function changeEventStatus(Request $request)
-{
-$obj = Event::find($request->id);
-$obj->status = $request->status;
-$obj->save();
-
-return response()->json(['success' => 'Status change successfully.']);
-}
-
-
-
-
-
-
-
-
-
-
-<!-- TOOGLE SWITCH 2 take permission -->
-<input type="checkbox" class="__CHANGE__THIS__1__" id="single-col-{{ $service->id }}" data-id="{{ $service->id }}"
-    data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive"
-    {{ $service->status ? 'checked' : '' }}>
-<label class="custom-control-label" for="customSwitch3">Toggle this</label>
-
-
-<script>
-    $(function () {
-        $('.customControlInput').change(function () {
-            if (confirm("Do you want to change the status?")) {
-                var status = $(this).prop('checked') == true ? 1 : 0;
-                var id = $(this).data('id');
-                $.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    url: "changeCoursCategoryStatus",
-                    data: {
-                        'status': status,
-                        'id': id
-                    },
-                    success: function (data) {
-                        console.log(data.success);
-                    }
-                });
-            } else {
-                if ($("#single-col-" + $(this).data('id')).prop("checked") == true) {
-                    $("#single-col-" + $(this).data('id')).prop('checked', false);
-                } else if ($("#single-col-" + $(this).data('id')).prop("checked") == false) {
-                    $("#single-col-" + $(this).data('id')).prop('checked', true);
-                }
-            }
-        })
-    })
-</script>
-
-
-<!-- USE ROUTE LIKE THIS -->
-Route::get('__CHANGE__THIS__2__', [ServiceController::class, 'changeServiceStatus']);
-
-<!-- USE THIS IN CONTROLLER -->
-public function changeEventStatus(Request $request)
-{
-$obj = Event::find($request->id);
-$obj->status = $request->status;
-$obj->save();
-
-return response()->json(['success' => 'Status change successfully.']);
-}

@@ -348,3 +348,12 @@ main .dark_box .dark_box_content {
     padding: 5px;
     font-size: 105%;
 }
+
+xmp {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px;
+    background-color: #eee;
+    padding-bottom: 20px;
+}
