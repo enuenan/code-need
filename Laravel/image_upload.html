@@ -11,6 +11,7 @@
 	<script>
 		hljs.initHighlightingOnLoad();
 	</script>
+	<link rel="icon" type="image/png" href="../public/img/icon2.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,6 +19,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../public/css/styles.css">
 	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
 </head>
 
 <body>
@@ -32,8 +35,19 @@
 		</header>
 
 		<main>
+			<h3>Image Upload</h3>
+			<p>There are two ways to upload images. One is to use Storage facades and the other one is image
+				intervention.
+			</p>
+			<h4 style="text-align:center">Using Intervention</h4>
+			<p>Run the below command</p>
+			<input type="text" readonly value="composer require intervention/image" name="" id="intervention_image">
+			<button value="copy" onclick="copyFunction('intervention_image')" type="button"
+				class="btn btn-block btn-info">
+				<i class="fas fa-copy" style="padding-right: 5px;"></i>  Copy
+			</button>
 
-			<p>Laravel image intervention</p>
+			<p>Laravel image upload with intervention</p>
 			<pre>
 				<code class="javascript">
 if ($request->hasFile('image')) {
